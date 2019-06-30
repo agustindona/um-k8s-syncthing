@@ -1,5 +1,5 @@
 # um-k8s-syncthing
-Project SynThing UM-cloud with kubernetes
+Project SyncThing UM-cloud with kubernetes
 
 Step 1:
 Make syncthing statefull
@@ -11,7 +11,7 @@ Add HTTPS on existing clusterissuers.certmanager
 Step 3:
 Implement oauth2-proxy
 
-Google Auth Provider
+HOWTO add Google Auth Provider
 For Google, the registration steps are:
 
 Create a new project: https://console.developers.google.com/project
