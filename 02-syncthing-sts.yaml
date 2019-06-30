@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: syncthing
+  labels:
+    run: syncthing
+spec:
+  selector:
+    matchLabels:
+      run: syncthing
+  serviceName: "syncthing"
+  template:
+    metadata:
+      generateName: syncthing
+      labels:
+        run: syncthing
+    spec:
+      containers:
+        - name: syncthing
+          image: linuxserver/syncthing
+          imagePullPolicy: Always
+          ports:
+            - name: syncthing
+              containerPort: 8384
+          volumeMounts:
+            - mountPath: "/config"
+              name: config
+            - mountPath: "/config/config.xml"
+              name: syncthing-config-file
+              subPath: "config.xml"
+              #      securityContext:
+              #        fsGroup: 911
+      volumes:
+       - name: syncthing-config-file
+         configMap:
+           name: syncthing-config
+  volumeClaimTemplates:
+   - metadata:
+       name: config
+       annotations:
+     spec:
+       accessModes: [ "ReadWriteOnce" ]
+       #storageClassName: "openebs-standalone"
+       resources:
+         requests:
+           storage: 1Gi  
