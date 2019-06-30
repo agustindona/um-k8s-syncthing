@@ -1,11 +1,12 @@
 # um-k8s-syncthing
-Project synthing cloud with kubernetes
+Project SynThing UM-cloud with kubernetes
 
 Step 1:
 Make syncthing statefull
 
+
 Step 2:
-Add HTTPS
+Add HTTPS on existing clusterissuers.certmanager
 
 Step 3:
 Implement oauth2-proxy
@@ -23,9 +24,10 @@ Open the “New credentials” drop down
 Choose “OAuth client ID”
 Choose “Web application”
 Application name is freeform, choose something appropriate
-Authorized JavaScript origins is your domain ex: https://internal.yourcompany.com
-Authorized redirect URIs is the location of oauth2/callback ex: https://internal.yourcompany.com/oauth2/callback
+Authorized JavaScript origins is your domain ex: https://subdomain.domain.com
+Authorized redirect URIs is the location of oauth2/callback ex: https://subdomain.domain.com/oauth2/callback
 Choose “Create”
 Take note of the Client ID and Client Secret
 
 Step 4: peerID
+Create a ConfigMap with config.xml
