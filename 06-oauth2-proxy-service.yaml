@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: svc-oauth2-proxy
   labels:
     run: svc-oauth2-proxy
-  name: svc-oauth2-proxy
 spec:
   ports:
   - port: 4180
